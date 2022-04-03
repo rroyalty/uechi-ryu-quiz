@@ -12,9 +12,9 @@ const App: React.FC = (): JSX.Element => {
   return (
       <Routes>
         <Route path = '/' element = {<Home />} />
+        <Route path = 'end' element = {<End />} />
         <Route path = 'questions' element = {<Questions />}>
           <Route path = ':questionId' element = {<Question />} />
-          <Route path = 'end' element = {<End />} />
         </Route>
       </Routes>
   );

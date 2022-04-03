@@ -33,18 +33,32 @@ function shuffleArray(array: Array<IQuestion>) {
 };
 
 interface ContextType {
-    currentTimer: number,
-    setTimer: Dispatch<SetStateAction<number>>
+    stateVar: number,
+    stateFunction: Dispatch<SetStateAction<number>>
 };
 
-export function useTimerContext() {
-    return useOutletContext<ContextType>();
+interface ContextTypeArr extends Array<ContextType>{};
+
+export function usePassedContext() {
+    return useOutletContext<ContextTypeArr>();
 };
 
 const Questions: React.FC = (): JSX.Element => {
 
     const today: number = new Date().getTime() + (60 * 1000);  
     const [currentTimer, setTimer] = useState<number>(today);
+    const [answerState, setAnswerState] = useState<number>(0);
+
+    const contextToPass: ContextTypeArr = [
+        {
+            "stateVar": currentTimer,
+            "stateFunction": setTimer 
+        },
+        {
+            "stateVar": answerState,
+            "stateFunction": setAnswerState 
+        }];
+
 
     shuffleArray(questionsJSON);
 
@@ -53,11 +67,11 @@ const Questions: React.FC = (): JSX.Element => {
             <Container sx={{display: "flex", flexDirection: "column", alignItems: "center", height: "100vh"}} maxWidth = 'xs'>
                 <br />
                 <TimerDiv>
-                    <CountdownTimer targetDate={currentTimer}/>
+                    <CountdownTimer targetDate={currentTimer} answerState={answerState}/>
                 </TimerDiv>
                 <br />
                 <QuestionsDiv>
-                    <Outlet context={{currentTimer, setTimer}}/>
+                    <Outlet context={contextToPass}/>
                 </QuestionsDiv>
             </Container>
         </QuestionContext.Provider>
