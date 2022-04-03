@@ -10,7 +10,6 @@ import End from './components/End';
 
 const App: React.FC = (): JSX.Element => {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path = '/' element = {<Home />} />
         <Route path = 'questions' element = {<Questions />}>
@@ -18,7 +17,6 @@ const App: React.FC = (): JSX.Element => {
           <Route path = 'end' element = {<End />} />
         </Route>
       </Routes>
-    </BrowserRouter>
   );
 }
 
