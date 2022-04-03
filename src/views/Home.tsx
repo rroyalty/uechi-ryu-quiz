@@ -59,7 +59,7 @@ const Home: React.FC = (): JSX.Element => {
                 <li>Answers will be presented in a random order for every question.</li>
             </ul>
             <p>Enjoy!</p> */}
-            <Button sx={{height: 50, fontSize: 20, width: 260}} component={Link} to={'/0'} variant="contained" >
+            <Button sx={{height: 50, fontSize: 20, width: 260}} component={Link} to={'/questions/0'} variant="contained" >
                 Begin
             </Button>
         </HomeDiv>
