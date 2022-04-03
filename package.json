@@ -2,7 +2,7 @@
   "homepage": "https://rroyalty.github.io/uechi-ryu-quiz/",
   "name": "uechi-ryu-quiz",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
