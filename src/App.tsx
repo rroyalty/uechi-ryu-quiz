@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Home from './views/Home';
 import Questions from './views/Questions';
@@ -16,6 +16,7 @@ const App: React.FC = (): JSX.Element => {
         <Route path = 'questions' element = {<Questions />}>
           <Route path = ':questionId' element = {<Question />} />
         </Route>
+        <Route path = '*' element = {<Home />}  />
       </Routes>
   );
 }

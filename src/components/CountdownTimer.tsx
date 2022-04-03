@@ -5,8 +5,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import HourglassDisabledIcon from '@mui/icons-material/HourglassDisabled';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import { useNavigate, NavigateFunction } from "react-router-dom";
-import End from './End';
+import { useNavigate } from "react-router-dom";
 
 interface ITargetDate {
     targetDate: number,
@@ -25,9 +24,9 @@ const CountdownTimer: React.FC<ITargetDate> = (props): JSX.Element => {
   if (minutes + seconds <= 0) {
     navigate('/end');
     return <div />;
-  } else if (props.answerState == -1) {
+  } else if (props.answerState === -1) {
     return <WrongAnswer />;
-  } else if (props.answerState == 1) {
+  } else if (props.answerState === 1) {
     return <RightAnswer />;
   } else {
     return (
@@ -44,12 +43,6 @@ const ShowCounter: React.FC<IMinutesSeconds> = ({ minutes, seconds }): JSX.Eleme
         <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<AccessTimeIcon />} variant='outlined' color='primary' label={minutes + ' min : ' + seconds +' sec'} size='medium'/>
     );
 };
-
-const ExpiredNotice: React.FC = (): JSX.Element => {
-    return (
-        <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<HourglassDisabledIcon />} variant='outlined' color='warning' label='Time is up!' size='medium'/>
-    );
-  };
 
 const WrongAnswer: React.FC = (): JSX.Element => {
   return (

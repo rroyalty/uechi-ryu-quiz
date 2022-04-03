@@ -6,9 +6,6 @@ import QuestionCard from './QuestionCard';
 import AnswerSet from './AnswerSet';
 import Errors from './Errors';
 
-const QuestionDiv = styled.div`
-`
-
 let errorMsg: string;
 
 const Question: React.FC = (): JSX.Element => {
@@ -42,9 +39,7 @@ const Question: React.FC = (): JSX.Element => {
     };
 
     return(
-        <QuestionDiv>
-            <CheckIndex />
-        </QuestionDiv>
+        <CheckIndex />
     );
 };
 
