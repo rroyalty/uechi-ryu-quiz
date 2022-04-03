@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 const HomeDiv = styled.div`
     width: 100vw;
@@ -9,7 +10,7 @@ const HomeDiv = styled.div`
     align-items: center;
     justify-content: center;
         & > h1 {
-            margin: 25px;
+            margin: 5px;
             font-family: arial;
             font-weight: 400;
             font-size: 3rem;
@@ -58,9 +59,9 @@ const Home: React.FC = (): JSX.Element => {
                 <li>Answers will be presented in a random order for every question.</li>
             </ul>
             <p>Enjoy!</p> */}
-            <div>
-                <Link to='questions/0'>Begin</Link>
-            </div>
+            <Button sx={{height: 50, fontSize: 20, width: 260}} component={Link} to={'/0'} variant="contained" >
+                Begin
+            </Button>
         </HomeDiv>
     )
 };
