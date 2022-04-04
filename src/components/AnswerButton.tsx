@@ -31,26 +31,16 @@ const NoAnswer: React.FC<INavigate> = (props): JSX.Element => {
     let responseState = responseContext.stateVar;
     const setResponse: Dispatch<SetStateAction<number>> = responseContext.stateFunction;
 
-    useEffect(() => {
-        if (props.index === 0) {
-            setResponse(1)
-        } else { 
-            setResponse(-1)
-        }
-    }, [responseState])
-
     const handleClick = async (index: number, navigate: NavigateFunction, questionId: number ) => {
 
         if (index === 0) {
-            // context[0].stateFunction(context[0].stateVar + 3000);
-            responseState = 1;
+            setResponse(1);
         } else {
-            // context[0].stateFunction(context[0].stateVar - 5000)
-            responseState = -1;
+            setResponse(-1);
         }
         await new Promise(r => setTimeout(r, 700));
         navigate(`/questions/${questionId+1}`);
-        responseState = 0;
+        setResponse(0);
     }
 
     return (
