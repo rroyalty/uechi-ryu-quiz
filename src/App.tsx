@@ -3,9 +3,9 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 
 import Home from './views/Home';
-import Questions from './views/Questions';
+import BeginGame from './views/Questions';
 import Question from './components/Question';
-import End from './components/End';
+import End from './views/End';
 
 
 const App: React.FC = (): JSX.Element => {
@@ -13,7 +13,7 @@ const App: React.FC = (): JSX.Element => {
       <Routes>
         <Route path = '/' element = {<Home />} />
         <Route path = 'end' element = {<End />} />
-        <Route path = 'questions' element = {<Questions />}>
+        <Route path = 'questions' element = {<BeginGame />}>
           <Route path = ':questionId' element = {<Question />} />
         </Route>
         <Route path = '*' element = {<Home />}  />

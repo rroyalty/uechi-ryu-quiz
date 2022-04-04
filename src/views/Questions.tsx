@@ -6,7 +6,8 @@ import questionsJSON from '../static/questions.json';
 import QuestionContext from '../context/questionContext';
 import ResponseContext from '../context/responseContext';
 import Container from '@mui/material/Container';
-import { IContextState, IQuestion } from '../interface/interface'
+import { IContextState, IQuestion } from '../interface/interface';
+import End from './End';
 
 const QuestionsDiv = styled.div`
     width: 100%;
@@ -32,42 +33,52 @@ function shuffleArray(array: Array<IQuestion>) {
 //     return useOutletContext<Array<IContextState>>();
 // };
 
-const Questions: React.FC = (): JSX.Element => {
 
-    // const today: number = new Date().getTime() + (60 * 1000);  
-    // const [currentTimer, setTimer] = useState<number>(today);
+const BeginGame: React.FC = (): JSX.Element => {
 
-    const [response, setResponse] = useState<number>(0);
+    const now: number = new Date().getTime(); 
+    const [currentTimer, setTimer] = useState<number>(now + (60 * 1000));
+
+    const [response, setResponse] = useState<number>(-1);
     const initialValue: IContextState = {"stateVar": response, "stateFunction": setResponse};
+
+    if (currentTimer <= now) {
+        return (
+            <GameOver />
+        )
+    } else {
+        return (
+            <QuestionContext.Provider value={questionsJSON}>
+                <ResponseContext.Provider value={initialValue}>
+                    <Questions stateVar = {currentTimer} stateFunction = {setTimer}/>
+                </ResponseContext.Provider>
+            </QuestionContext.Provider>
+        );
+    };
+};
+
+const Questions: React.FC<IContextState> = (props): JSX.Element => {
+
     shuffleArray(questionsJSON)
 
-    // const contextToPass: ContextTypeArr = [
-    //     {
-    //         "stateVar": currentTimer,
-    //         "stateFunction": setTimer 
-    //     },
-    //     {
-    //         "stateVar": answerState,
-    //         "stateFunction": setAnswerState 
-    //     }];
     return (
-        <QuestionContext.Provider value={questionsJSON}>
-            <ResponseContext.Provider value={initialValue}>
-                <Container sx={{display: "flex", flexDirection: "column", alignItems: "center", height: "100vh"}} maxWidth = 'xs'>
-                    <br />
-                    <TimerDiv>
-                        <CountdownTimer />
-                        {/* <CountdownTimer targetDate={currentTimer} answerState={answerState}/> */}
-                    </TimerDiv>
-                    <br />
-                    <QuestionsDiv>
-                        <Outlet />
-                        {/* <Outlet context={contextToPass}/> */}
-                    </QuestionsDiv>
-                </Container>
-            </ResponseContext.Provider>
-        </QuestionContext.Provider>
+        <Container sx={{display: "flex", flexDirection: "column", alignItems: "center", height: "100vh"}} maxWidth = 'xs'>
+            <br />
+            <TimerDiv>
+                <CountdownTimer stateVar = {props.stateVar} stateFunction = {props.stateFunction}/>
+            </TimerDiv>
+            <br />
+            <QuestionsDiv>
+                <Outlet />
+            </QuestionsDiv>
+        </Container>
     );
 };
 
-export default Questions;
+const GameOver: React.FC = (): JSX.Element => {
+    return(
+        <End />
+        );
+};
+
+export default BeginGame;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useCountdown } from '../hooks/useCountdown';
 import Chip from '@mui/material/Chip';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -8,33 +8,33 @@ import { useNavigate } from "react-router-dom";
 import ResponseContext from '../context/responseContext';
 import { IContextState, ITimer } from '../interface/interface'
 
-// const CountdownTimer: React.FC<ITargetDate> = (props): JSX.Element => {
-const CountdownTimer: React.FC = (p): JSX.Element => {
-
-  const today: number = new Date().getTime() + (60 * 1000); 
-  const [currentTimer, setTimer] = useState<number>(today);
-  const navigate = useNavigate();
+const CountdownTimer: React.FC<IContextState> = (props): JSX.Element => {
 
   const responseContext: IContextState = React.useContext(ResponseContext);
   let responseState = responseContext.stateVar;
 
-  if (currentTimer <= 0) {
-    navigate('/end');
-    return <div />;
-  } else if (responseState === -1) {
-    setTimer(currentTimer - 5000);
-    return <WrongAnswer />;
-  } else if (responseState === 1) {
-    setTimer(currentTimer + 3000);
-    return <RightAnswer />;
-  } else {
+  useEffect(() =>{
+    if (responseState === -1) {
+      props.stateFunction(props.stateVar);
+    } else if (responseState === 0) { 
+      props.stateFunction(props.stateVar + 3000);
+    } else {
+      props.stateFunction(props.stateVar - 5000);
+    }}, [responseState]);
+
+  if (responseState === -1) {
     return (
       <ShowCounter
-        currentTimer={currentTimer}
-      />
-    );
+      currentTimer={props.stateVar}
+    />
+    )
+  } else if (responseState === 0) {
+      return <RightAnswer />;
+  } else {
+    return <WrongAnswer />;
   }
 };
+
 
 const ShowCounter: React.FC<ITimer> = (props): JSX.Element => {
   const [ minutes, seconds ] = useCountdown(props.currentTimer);

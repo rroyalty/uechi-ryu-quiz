@@ -2,7 +2,7 @@ import React from 'react';
 import { IContextState } from '../interface/interface';
 
 const initialValue: IContextState = {
-    stateVar: 0,
+    stateVar: -1,
     stateFunction: () => {}   
 };
 
