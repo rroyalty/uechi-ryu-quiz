@@ -11,14 +11,12 @@ interface IProps {
 const QuestionCard: React.FC<IProps> = (props): JSX.Element => {
 
     return (
-        // <QuestionCardDiv>
         <Card sx={{width: 260, height: 300}}>
             <CardContent>
                 <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>Question #{props.questionId+1}</Typography>
                 <Typography sx={{ fontSize: 16 }} variant="body2">{props.question}</Typography>
             </CardContent>
         </Card>
-        // </QuestionCardDiv>
     )
 };
 
