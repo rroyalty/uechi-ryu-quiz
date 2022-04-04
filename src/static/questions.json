@@ -57,15 +57,15 @@
     },
     {                
         "question": "Please translate to English: Empi-Uchi", 
-        "answers": ["Elbow Strike", "Finter Strike", "Ridge Hand Strike", "Hammer Strike", "Knife Hand Strike"]
+        "answers": ["Elbow Strike", "Finger Strike", "Ridge Hand Strike", "Hammer Strike", "Knife Hand Strike"]
     },
     {                
         "question": "Please translate to English: Haito-Uchi", 
-        "answers": ["Ridge Hand Strike", "Knife Hand Strike", "Elbow Strike", "Finter Strike", "Hammer Strike"]
+        "answers": ["Ridge Hand Strike", "Knife Hand Strike", "Elbow Strike", "Finger Strike", "Hammer Strike"]
     },
     {                
         "question": "Please translate to English: Shuto", 
-        "answers": ["Knife Hand Strike", "Ridge Hand Strike", "Elbow Strike", "Finter Strike", "Hammer Strike"]
+        "answers": ["Knife Hand Strike", "Ridge Hand Strike", "Elbow Strike", "Finger Strike", "Hammer Strike"]
     },
     {            
         "question": "Please translate to English: Seiken", 
@@ -73,58 +73,58 @@
     },    
     {                
         "question": "Please translate to English: Tutsui", 
-        "answers": ["Hammer Strike", "Knife Hand Strike", "Ridge Hand Strike", "Elbow Strike", "Finter Strike"]
+        "answers": ["Hammer Strike", "Knife Hand Strike", "Ridge Hand Strike", "Elbow Strike", "Finger Strike"]
     },
     {                
         "question": "Please translate to English: Obi", 
-        "answers": ["Belt"]
+        "answers": ["Belt", "Uniform", "Floor", "Gym", "Testing Area"]
     },
     {                
         "question": "Please translate to English: Gi", 
-        "answers": ["Uniform"]
+        "answers": ["Uniform", "Belt", "Floor", "Gym", "Testing Area"]
     },
     {                
         "question": "Please translate to English: Kiai", 
-        "answers": ["Shout of Spirit"]
+        "answers": ["Shout of Spirit", "Shout of Anger", "Shout of Power", "Shout of Pain", "Shout of Energy"]
     },
     {                
         "question": "Please translate to English: Sensai", 
-        "answers": ["One who has gone before"]
+        "answers": ["One who has gone before", "Karate Student", "Senior Student", "One who learns", "Karate Master"]
     },
     {                
         "question": "Please translate to English: Karate-Ka", 
-        "answers": ["Karate Student"]
+        "answers": ["Karate Student", "One who has gone before", "Senior Student", "One who learns", "Karate Master"]
     },
     {                
         "question": "Please translate to English: Sanchin-Dachi", 
-        "answers": ["Sanchin Stance"]
+        "answers": ["Sanchin Stance", "Sanchin Style", "Sanchin Form", "Sanchin Application", "Sanchin Instructor"]
     },
     {                
         "question": "Please translate to English: Bunkai", 
-        "answers": ["Application"]
+        "answers": ["Application", "Example", "Forging of the Bone", "Empty Hand", "Clashing Hands"]
     },
     {                
         "question": "Please translate to English: Sempai", 
-        "answers": ["Senior Student"]
+        "answers": ["Senior Student", "Karate Student", "One who has gone before", "One who learns", "Karate Master"]
     },
     {                
         "question": "Please translate to English: Muwate", 
-        "answers": ["Turn"]
+        "answers": ["Turn", "Step", "Breath", "Punch", "Kick"]
     },
     {                
         "question": "Please translate to English: Karate", 
-        "answers": ["Empty Hand"]
+        "answers": ["Empty Hand", "Closed Fist", "Clashing Hands", "Self Defense", "Forging of the Bone"]
     },
     {                
         "question": "Please translate to English: Kumite", 
-        "answers": ["Clashing Hands"]
+        "answers": ["Clashing Hands", "Empty Hand", "Closed Fist", "Self Defense", "Forging of the Bone"]
     },
     {                
         "question": "Please translate to English: Kotekitae", 
-        "answers": ["Forging of the Bone"]
+        "answers": ["Forging of the Bone", "Empty Hand", "Closed Fist", "Self Defense"]
     },
     {                
         "question": "Please translate to English: Kiba-Dachi", 
-        "answers": ["Horse Stance"]
+        "answers": ["Horse Stance", "Cat Stance", "Crane Stance", "Dragon Stance", "Tiger Stance"]
     }
 ]
