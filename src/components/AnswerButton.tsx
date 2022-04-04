@@ -1,76 +1,74 @@
 import Button from '@mui/material/Button';
-import { usePassedContext } from '../views/Questions'
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import { useNavigate, NavigateFunction } from "react-router-dom";
+import ResponseContext from '../context/responseContext';
+import { IContextState, IButton } from '../interface/interface'
 
-interface IProps {
-    answer: string,
-    index: number,
-    questionId: number
-};
-
-interface ContextType {
-    stateVar: number,
-    stateFunction: Dispatch<SetStateAction<number>>
-};
-
-interface ContextTypeArr extends Array<ContextType>{};
-
-interface ContextTypeProp extends IProps{
-    context: ContextTypeArr;
+interface INavigate extends IButton{
     navigate: NavigateFunction;
 };
 
-const handleClick = async (index: number, context: ContextTypeArr, navigate: NavigateFunction, questionId: number) => {
+const AnswerButton: React.FC<IButton> = (props): JSX.Element => {
 
-    if (index == 0) {
-        context[0].stateFunction(context[0].stateVar + 3000);
-        context[1].stateFunction(1);
+    const responseContext: IContextState = React.useContext(ResponseContext);
+    const responseState = responseContext.stateVar;
 
-    } else {
-        context[0].stateFunction(context[0].stateVar - 5000)
-        context[1].stateFunction(-1);
-    }
-    await new Promise(r => setTimeout(r, 700));
-    navigate(`/questions/${questionId+1}`);
-    context[1].stateFunction(0);
-}
-
-const AnswerButton: React.FC<IProps> = (props): JSX.Element => {
-    const context: ContextTypeArr = usePassedContext();
-    const answer = props.answer;
-    const index = props.index; 
-    const questionId = props.questionId;
-    const answerVar = context[1].stateVar
     const navigate = useNavigate();
 
-    if (answerVar === -1) {
-        return <WrongAnswer answer={answer} index={index} questionId={questionId} context={context} navigate={navigate}/>;
-      } else if (answerVar === 1 ) {
-        return <RightAnswer answer={answer} index={index} questionId={questionId} context={context} navigate={navigate}/>;
+    if (responseState === -1) {
+        return <WrongAnswer answer={props.answer} index={props.index} questionId={props.questionId} />;
+      } else if (responseState === 1 ) {
+        return <RightAnswer answer={props.answer} index={props.index} questionId={props.questionId} />;
       } else {
-        return <NoAnswer answer={answer} index={index} questionId={questionId} context={context} navigate={navigate}/>;
+        return <NoAnswer answer={props.answer} index={props.index} questionId={props.questionId} navigate={navigate}/>;
       };
 };
 
 
-const NoAnswer: React.FC<ContextTypeProp> = (props): JSX.Element => {
+const NoAnswer: React.FC<INavigate> = (props): JSX.Element => {
+
+    const responseContext: IContextState = React.useContext(ResponseContext);
+    let responseState = responseContext.stateVar;
+    const setResponse: Dispatch<SetStateAction<number>> = responseContext.stateFunction;
+
+    useEffect(() => {
+        if (props.index === 0) {
+            setResponse(1)
+        } else { 
+            setResponse(-1)
+        }
+    }, [responseState])
+
+    const handleClick = async (index: number, navigate: NavigateFunction, questionId: number ) => {
+
+        if (index === 0) {
+            // context[0].stateFunction(context[0].stateVar + 3000);
+            responseState = 1;
+        } else {
+            // context[0].stateFunction(context[0].stateVar - 5000)
+            responseState = -1;
+        }
+        await new Promise(r => setTimeout(r, 700));
+        navigate(`/questions/${questionId+1}`);
+        responseState = 0;
+    }
+
     return (
-        <Button sx={{height: 50, fontSize: 12}} variant="outlined" onClick={(e: React.MouseEvent) => handleClick(props.index, props.context, props.navigate, props.questionId)}>
+        <Button sx={{height: 50, fontSize: 12}} variant="outlined" onClick={(e: React.MouseEvent) => handleClick(props.index, props.navigate, props.questionId)}>
             {props.answer}
         </Button>    );
   };
 
-const WrongAnswer: React.FC<ContextTypeProp> = (props): JSX.Element => {
+const WrongAnswer: React.FC<IButton> = (props): JSX.Element => {
     return (
-        <Button color='error' sx={{height: 50, fontSize: 12}} variant="outlined" onClick={(e: React.MouseEvent) => handleClick(props.index, props.context, props.navigate, props.questionId)}>
+        <Button color='error' sx={{height: 50, fontSize: 12}} variant="outlined">
             {props.answer}
         </Button>  );
 };
 
-const RightAnswer: React.FC<ContextTypeProp> = (props): JSX.Element => {
+const RightAnswer: React.FC<IButton> = (props): JSX.Element => {
     return (
-        <Button color='success' sx={{height: 50, fontSize: 12}} variant="outlined" onClick={(e: React.MouseEvent) => handleClick(props.index, props.context, props.navigate, props.questionId)}>
+        <Button color='success' sx={{height: 50, fontSize: 12}} variant="outlined">
             {props.answer}
         </Button> );
 };
