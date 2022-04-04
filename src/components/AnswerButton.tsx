@@ -45,14 +45,14 @@ const NoAnswer: React.FC<INavigate> = (props): JSX.Element => {
 
 const WrongAnswer: React.FC<IButton> = (props): JSX.Element => {
     return (
-        <Button color='error' sx={{height: 50, fontSize: 12}} variant="outlined">
+        <Button color='error' sx={{height: 50, fontSize: 12}} variant="contained">
             {props.answer}
         </Button>  );
 };
 
 const RightAnswer: React.FC<IButton> = (props): JSX.Element => {
     return (
-        <Button color='success' sx={{height: 50, fontSize: 12}} variant="outlined">
+        <Button color='success' sx={{height: 50, fontSize: 12}} variant="contained">
             {props.answer}
         </Button> );
 };

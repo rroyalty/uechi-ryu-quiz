@@ -52,13 +52,13 @@ const ShowCounter: React.FC<ITimer> = (props): JSX.Element => {
 
 const WrongAnswer: React.FC = (): JSX.Element => {
   return (
-      <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<ThumbDownIcon />} variant='outlined' color='error' label='-3 seconds!' size='medium'/>
+      <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<ThumbDownIcon />} variant='filled' color='error' label='-5 seconds!' size='medium'/>
   );
 };
 
 const RightAnswer: React.FC = (): JSX.Element => {
   return (
-      <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<ThumbUpIcon />} variant='outlined' color='success' label='+3 seconds!' size='medium'/>
+      <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<ThumbUpIcon />} variant='filled' color='success' label='+3 seconds!' size='medium'/>
   );
 };
 
