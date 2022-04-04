@@ -38,15 +38,21 @@ const CountdownTimer: React.FC<IContextState> = (props): JSX.Element => {
 
 const ShowCounter: React.FC<ITimer> = (props): JSX.Element => {
   const [ minutes, seconds ] = useCountdown(props.currentTimer);
+  const navigate = useNavigate();
 
-  return (
-      <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<AccessTimeIcon />} variant='outlined' color='primary' label={minutes + ' min : ' + seconds +' sec'} size='medium'/>
-  );
+  if  ( minutes + seconds <= 0 ) {
+    navigate(`/end`)
+    return (<div />)
+  } else  {
+    return (
+        <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<AccessTimeIcon />} variant='outlined' color='primary' label={minutes + ' min : ' + seconds +' sec'} size='medium'/>
+    );
+  };
 };
 
 const WrongAnswer: React.FC = (): JSX.Element => {
   return (
-      <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<ThumbDownIcon />} variant='outlined' color='error' label='-5 seconds!' size='medium'/>
+      <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<ThumbDownIcon />} variant='outlined' color='error' label='-3 seconds!' size='medium'/>
   );
 };
 

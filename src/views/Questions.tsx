@@ -8,7 +8,7 @@ import ResponseContext from '../context/responseContext';
 import Container from '@mui/material/Container';
 import { IContextState, IQuestion } from '../interface/interface';
 import End from './End';
-import { useNavigate, NavigateFunction } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const QuestionsDiv = styled.div`
     width: 100%;
@@ -30,14 +30,8 @@ function shuffleArray(array: Array<IQuestion>) {
     };
 };
 
-// export function usePassedContext() {
-//     return useOutletContext<Array<IContextState>>();
-// };
-
 
 const BeginGame: React.FC = (): JSX.Element => {
-
-    const navigate = useNavigate();
 
     const now: number = new Date().getTime(); 
     const [currentTimer, setTimer] = useState<number>(now + (60 * 1000));
@@ -45,20 +39,13 @@ const BeginGame: React.FC = (): JSX.Element => {
     const [response, setResponse] = useState<number>(-1);
     const initialValue: IContextState = {"stateVar": response, "stateFunction": setResponse};
 
-    if (currentTimer <= now) {
-        navigate(`/end`);
-        return (
-            <div />
-        );
-    } else {
-        return (
-            <QuestionContext.Provider value={questionsJSON}>
-                <ResponseContext.Provider value={initialValue}>
-                    <Questions stateVar = {currentTimer} stateFunction = {setTimer}/>
-                </ResponseContext.Provider>
-            </QuestionContext.Provider>
-        );
-    };
+    return (
+        <QuestionContext.Provider value={questionsJSON}>
+            <ResponseContext.Provider value={initialValue}>
+                <Questions stateVar = {currentTimer} stateFunction = {setTimer}/>
+            </ResponseContext.Provider>
+        </QuestionContext.Provider>
+    );
 };
 
 const Questions: React.FC<IContextState> = (props): JSX.Element => {
@@ -77,12 +64,6 @@ const Questions: React.FC<IContextState> = (props): JSX.Element => {
             </QuestionsDiv>
         </Container>
     );
-};
-
-const GameOver: React.FC = (): JSX.Element => {
-    return(
-        <End />
-        );
 };
 
 export default BeginGame;
