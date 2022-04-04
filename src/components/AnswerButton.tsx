@@ -1,5 +1,5 @@
 import Button from '@mui/material/Button';
-import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { useNavigate, NavigateFunction } from "react-router-dom";
 import ResponseContext from '../context/responseContext';
 import { IContextState, IButton } from '../interface/interface'

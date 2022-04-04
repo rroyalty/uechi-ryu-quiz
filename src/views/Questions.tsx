@@ -8,6 +8,7 @@ import ResponseContext from '../context/responseContext';
 import Container from '@mui/material/Container';
 import { IContextState, IQuestion } from '../interface/interface';
 import End from './End';
+import { useNavigate, NavigateFunction } from "react-router-dom";
 
 const QuestionsDiv = styled.div`
     width: 100%;
@@ -36,6 +37,8 @@ function shuffleArray(array: Array<IQuestion>) {
 
 const BeginGame: React.FC = (): JSX.Element => {
 
+    const navigate = useNavigate();
+
     const now: number = new Date().getTime(); 
     const [currentTimer, setTimer] = useState<number>(now + (60 * 1000));
 
@@ -43,9 +46,10 @@ const BeginGame: React.FC = (): JSX.Element => {
     const initialValue: IContextState = {"stateVar": response, "stateFunction": setResponse};
 
     if (currentTimer <= now) {
+        navigate(`/end`);
         return (
-            <GameOver />
-        )
+            <div />
+        );
     } else {
         return (
             <QuestionContext.Provider value={questionsJSON}>
