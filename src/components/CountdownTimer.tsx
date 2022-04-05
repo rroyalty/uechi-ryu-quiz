@@ -40,15 +40,17 @@ const ShowCounter: React.FC<ITimer> = (props): JSX.Element => {
   const [ minutes, seconds ] = useCountdown(props.currentTimer);
   const navigate = useNavigate();
 
-  if  ( minutes + seconds <= 0 ) {
-    navigate(`/end`)
-    return (<div />)
-  } else  {
-    return (
-        <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<AccessTimeIcon />} variant='outlined' color='primary' label={minutes + ' min : ' + seconds +' sec'} size='medium'/>
-    );
-  };
+  useEffect(() => {
+    if  ( minutes + seconds <= 0 ) {
+        navigate('/');
+    }; 
+  }, [minutes, seconds])
+
+  return (
+      <Chip sx={{width: 260, height: 50, fontSize: 16}} icon={<AccessTimeIcon />} variant='outlined' color='primary' label={minutes + ' min : ' + seconds +' sec'} size='medium'/>
+  );
 };
+
 
 const WrongAnswer: React.FC = (): JSX.Element => {
   return (

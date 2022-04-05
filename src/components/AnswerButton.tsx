@@ -13,13 +13,14 @@ const AnswerButton: React.FC<IButton> = (props): JSX.Element => {
 
     if (responseState !== 0 && responseState === props.index) {
         return <WrongAnswer answer={props.answer} index={props.index} questionId={props.questionId} />;
-      } else if ( responseState !== -1 && props.index===0 ) {
+      } else if ( responseState !== -1 && props.index === 0 ) {
         return <RightAnswer answer={props.answer} index={props.index} questionId={props.questionId} />;
+      } else if (responseState !== -1) {
+        return <NoClickNoAnswer answer={props.answer} index={props.index} questionId={props.questionId} />;
       } else {
         return <NoAnswer answer={props.answer} index={props.index} questionId={props.questionId} navigate={navigate}/>;
-      };
+      }
 };
-
 
 const NoAnswer: React.FC<INavigate> = (props): JSX.Element => {
 
@@ -39,16 +40,23 @@ const NoAnswer: React.FC<INavigate> = (props): JSX.Element => {
         </Button>);
   };
 
+const NoClickNoAnswer: React.FC<IButton> = (props): JSX.Element => {
+    return (
+        <Button sx={{height: 50, fontSize: 12, pointerEvents: "none"}} variant="outlined">
+            {props.answer}
+        </Button>  );
+};
+
 const WrongAnswer: React.FC<IButton> = (props): JSX.Element => {
     return (
-        <Button color='error' sx={{height: 50, fontSize: 12}} variant="contained">
+        <Button color='error' sx={{height: 50, fontSize: 12, pointerEvents: "none"}} variant="contained">
             {props.answer}
         </Button>  );
 };
 
 const RightAnswer: React.FC<IButton> = (props): JSX.Element => {
     return (
-        <Button color='success' sx={{height: 50, fontSize: 12}} variant="contained">
+        <Button color='success' sx={{height: 50, fontSize: 12, pointerEvents: "none"}} variant="contained">
             {props.answer}
         </Button> );
 };

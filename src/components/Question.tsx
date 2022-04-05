@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import React from 'react';
+import React, {useEffect} from 'react';
 import QuestionContext from '../context/questionContext';
 import QuestionCard from './QuestionCard';
 import AnswerSet from './AnswerSet';
@@ -12,10 +12,12 @@ const Question: React.FC = (): JSX.Element => {
     let params = useParams();
     let index: number = params.questionId ? parseInt(params.questionId) : -1;
 
-    if ( index === -1) {
-        navigate('/');
-        return <div />;
-    } else {
+    useEffect(() => {
+        if (index === -1) {
+            navigate('/');
+        }; 
+    }, [index])
+
     return(
         <> 
             <QuestionCard question = {questionContext[index].question} questionId = {index}/>
@@ -23,7 +25,6 @@ const Question: React.FC = (): JSX.Element => {
             <AnswerSet answers = {questionContext[index].answers} questionId = {index}/>
         </>
         );
-    };
 };
 
 export default Question;

@@ -14,7 +14,6 @@ const BeginGame: React.FC = (): JSX.Element => {
         shuffleArray(questionsJSON);
     }, []);
 
-    console.log(questionsJSON)
     const [response, setResponse] = useState<number>(-1);
     const initialValue: IContextState = {"stateVar": response, "stateFunction": setResponse};
 
