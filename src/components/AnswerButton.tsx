@@ -2,17 +2,13 @@ import Button from '@mui/material/Button';
 import React, { Dispatch, SetStateAction } from 'react';
 import { useNavigate, NavigateFunction } from "react-router-dom";
 import ResponseContext from '../context/responseContext';
-import { IContextState, IButton } from '../interface/interface'
+import { IContextState, IButton, INavigate } from '../interface/interface'
 
-interface INavigate extends IButton{
-    navigate: NavigateFunction;
-};
 
 const AnswerButton: React.FC<IButton> = (props): JSX.Element => {
 
     const responseContext: IContextState = React.useContext(ResponseContext);
     const responseState = responseContext.stateVar;
-
     const navigate = useNavigate();
 
     if (responseState !== 0 && responseState === props.index) {
