@@ -13,7 +13,7 @@ const AnswerButton: React.FC<IButton> = (props): JSX.Element => {
 
     if (responseState !== 0 && responseState === props.index) {
         return <WrongAnswer answer={props.answer} index={props.index} questionId={props.questionId} />;
-      } else if (responseState === 0 && props.index===0 ) {
+      } else if ( responseState !== -1 && props.index===0 ) {
         return <RightAnswer answer={props.answer} index={props.index} questionId={props.questionId} />;
       } else {
         return <NoAnswer answer={props.answer} index={props.index} questionId={props.questionId} navigate={navigate}/>;
