@@ -15,6 +15,7 @@ const App: React.FC = (): JSX.Element => {
         <Route path = 'end' element = {<End />} />
         <Route path = 'questions' element = {<BeginGame />}>
           <Route path = ':questionId' element = {<Question />} />
+          <Route path = '*' element = {<Home />}  />
         </Route>
         <Route path = '*' element = {<Home />}  />
       </Routes>
