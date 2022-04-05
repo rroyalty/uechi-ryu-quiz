@@ -33,11 +33,11 @@
     },
     {            
         "question": "Please translate to English: Shoken", 
-        "answers": ["One Knuckle Fist", "Four Knuckle Fist", "Backfist", "Elbow Strike", "No-Knuckle Fist"]
+        "answers": ["One Knuckle Fist", "Fore Knuckle Fist", "Backfist", "Elbow Strike", "No-Knuckle Fist"]
     },
     {                
         "question": "Please translate to English: Hiraken", 
-        "answers": ["Four Knuckle Fist", "One Knuckle Fist", "Backfist", "Elbow Strike", "No-Knuckle Fist"]
+        "answers": ["Fore Knuckle Fist", "One Knuckle Fist", "Backfist", "Elbow Strike", "No-Knuckle Fist"]
     },
     {                
         "question": "Please translate to English: Wa-Uke", 
@@ -121,7 +121,7 @@
     },
     {                
         "question": "Please translate to English: Kotekitae", 
-        "answers": ["Forging of the Bone", "Empty Hand", "Closed Fist", "Self Defense"]
+        "answers": ["Forging of the Bone", "Empty Hand", "Closed Fist", "Self Defense", "Clashing Hands"]
     },
     {                
         "question": "Please translate to English: Kiba-Dachi", 

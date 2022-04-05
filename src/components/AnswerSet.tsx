@@ -1,26 +1,11 @@
 import AnswerButton from './AnswerButton';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import { IAnswersNumbered, IAnswerSetProps } from '../interface/interface'
+import { shuffleArray } from '../utils/utils'
 
-interface IProps {
-    answers: Array<string>,
-    questionId: number
-};
+const AnswerSet: React.FC<IAnswerSetProps> = (props): JSX.Element => {
 
-interface IAnswersNumbered {
-    element: string,
-    index: number
-};
-
-function shuffleArray(array: Array<IAnswersNumbered>) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * array.length);
-        [array[i], array[j]] = [array[j], array[i]];
-    };
-};
-
-const AnswerSet: React.FC<IProps> = (props): JSX.Element => {
-
-    let answerArray: Array<IAnswersNumbered> = [];
+    const answerArray: Array<IAnswersNumbered> = [];
 
     props.answers.forEach((element, index) => {
         answerArray.push({element, index});

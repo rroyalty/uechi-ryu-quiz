@@ -3,7 +3,7 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 
 import Home from './views/Home';
-import BeginGame from './views/Questions';
+import BeginGame from './views/BeginGame';
 import Question from './components/Question';
 import End from './views/End';
 
