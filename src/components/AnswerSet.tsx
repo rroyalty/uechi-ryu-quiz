@@ -10,6 +10,8 @@ const AnswerSet: React.FC<IAnswerSetProps> = (props): JSX.Element => {
 
     const responseContext: IContextState = React.useContext(ResponseContext);
     const responseState = responseContext.stateVar;
+
+    const [answerArray, setAnswerArray] = useState<Array<IAnswersNumbered>>(props.answers.map((element: string, index: number) => ({element, index})));
     const [highScore, setHighScore] = useState<number>(parseInt(JSON.parse(localStorage.getItem("uechiHighScore") || "0")));
     const [currentScore, setCurrentScore] = useState<number>(0);
 
@@ -21,16 +23,16 @@ const AnswerSet: React.FC<IAnswerSetProps> = (props): JSX.Element => {
     }, [currentScore])
 
     useEffect(() => {
-        if (responseState === 1) {
+        console.log(responseState);
+        if (responseState === 0) {
             setCurrentScore(currentScore + 1);
         }
-    }, [props.questionId])
-
-    const [answerArray, setAnswerArray] = useState<Array<IAnswersNumbered>>(props.answers.map((element: string, index: number) => ({element, index})));
+    }, [responseState])
 
     useEffect(() => {
-        setAnswerArray(props.answers.map((element: string, index: number) => ({element, index})))
-        shuffleArray(answerArray);
+        let tempArray = [...props.answers.map((element: string, index: number) => ({element, index}))];
+        shuffleArray(tempArray);
+        setAnswerArray(tempArray);
     }, [props.answers]);
 
     return (
