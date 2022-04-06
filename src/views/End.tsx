@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
+import Chip from '@mui/material/Chip';
 
 const HomeDiv = styled.div`
     width: 100vw;
@@ -39,16 +40,15 @@ const HomeDiv = styled.div`
             max-width: 66vw;
         };
 `
-const BeginButton = styled.a`
-`
 
 const End: React.FC = (): JSX.Element => {
+    const highScore: string = JSON.parse(localStorage.getItem("uechiHighScore") || "0");
 
     return (
         <HomeDiv>
             <h1>UECHIRYU</h1> 
             <h1>BUTOKUKAI</h1>
-            <h2> Game Over!</h2>
+            <h2>Game Over!</h2>
             {/* <p>The following is a timed multiple choice trivia quiz game created to help black belt candidates prepare for the written portion of the black belt test. I wanted something more fun and engaging than simple flash cards, because I've always hated those, so I decided to build a trivia game to help me study. The rules of the game are as follows:</p> */}
             {/* <ul>
                 <li>The player will start with 60 seconds on the clock.</li>
@@ -59,6 +59,7 @@ const End: React.FC = (): JSX.Element => {
                 <li>Answers will be presented in a random order for every question.</li>
             </ul>
             <p>Enjoy!</p> */}
+            <Chip sx={{width: 260, height: 50, fontSize: 30, marginBottom: 5}} variant='outlined' color='primary' label={highScore} size='medium'/>
             <Button sx={{height: 50, fontSize: 20, width: 260}} component={Link} to={'/questions/0'} variant="contained" >
                 Again?
             </Button>
