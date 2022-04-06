@@ -42,7 +42,7 @@ const ShowCounter: React.FC<ITimer> = (props): JSX.Element => {
 
   useEffect(() => {
     if  ( minutes + seconds <= 0 ) {
-        navigate('/');
+        navigate('/end');
     }; 
   }, [minutes, seconds])
 
