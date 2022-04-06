@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/uechi-ryu-quiz/static/css/main.073c9b0a.css",
-    "main.js": "/uechi-ryu-quiz/static/js/main.d5879217.js",
+    "main.js": "/uechi-ryu-quiz/static/js/main.d69918c2.js",
     "static/js/787.b1ece1f7.chunk.js": "/uechi-ryu-quiz/static/js/787.b1ece1f7.chunk.js",
     "index.html": "/uechi-ryu-quiz/index.html",
     "main.073c9b0a.css.map": "/uechi-ryu-quiz/static/css/main.073c9b0a.css.map",
-    "main.d5879217.js.map": "/uechi-ryu-quiz/static/js/main.d5879217.js.map",
+    "main.d69918c2.js.map": "/uechi-ryu-quiz/static/js/main.d69918c2.js.map",
     "787.b1ece1f7.chunk.js.map": "/uechi-ryu-quiz/static/js/787.b1ece1f7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.d5879217.js"
+    "static/js/main.d69918c2.js"
   ]
 }
