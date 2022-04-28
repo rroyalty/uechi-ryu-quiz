@@ -126,5 +126,105 @@
     {                
         "question": "Please translate to English: Kiba-Dachi", 
         "answers": ["Horse Stance", "Cat Stance", "Crane Stance", "Dragon Stance", "Tiger Stance"]
+    },
+    {                
+        "question": "Please translate to English: Butokukai", 
+        "answers": ["Martial Virtue Gathering/Association", "Collection of Martial Arts Dojos", "Like Minded Students", "Martial Arts Competition", "Martial Arts Head School"]
+    },
+    {                
+        "question": "What year was the Uechiryu Butokukai founded?", 
+        "answers": ["1984", "1966", "1969", "1974", "1988"]
+    },
+    {                
+        "question": "What year did Mr. Durkin begin training?", 
+        "answers": ["1966", "1984", "1969", "1974", "1988"]
+    },
+    {                
+        "question": "What year did Mr. Durking receive his black belt?", 
+        "answers": ["1969", "1984", "1966", "1974", "1988"]
+    },
+    {                
+        "question": "What year did Mr. Durkin open his first dojo?", 
+        "answers": ["1974", "1984", "1969", "1988", "1966"]
+    },
+    {                
+        "question": "What year was the Atkinson Dojo built?", 
+        "answers": ["1988", "1984", "1969", "1974", "1966"]
+    },
+    {                
+        "question": "Where was Mr. Durkin's first dojo located?", 
+        "answers": ["Salem, NH", "Pepperell, MA", "Atkinson, NH", "Lexington, MA", "Hollis, NH"]
+    },
+    {                
+        "question": "What rank is Mr. Durkin?", 
+        "answers": ["10th Dan", "9th Dan", "8th Dan", "7th Dan", "6th Dan"]
+    },
+    {                
+        "question": "What rank is Judy Durkin?", 
+        "answers": ["9th Dan", "10th Dan", "8th Dan", "7th Dan", "6th Dan"]
+    },
+    {                
+        "question": "Why is Judy Durkin's rank significant?", 
+        "answers": ["First woman to achieve a master rank", "She beat Mr. Durkin to master rank", "First woman allowed to practice", "First female dojo owner", "First woman to earn blackbelt"]
+    },
+    {                
+        "question": "What year did George Mattson begin training?", 
+        "answers": ["1956", "1958", "1966", "1969", "1874"]
+    },
+    {                
+        "question": "What year did George Mattson receive his black belt?", 
+        "answers": ["1958", "1911", "1991", "1948", "1874"]
+    },
+    {                
+        "question": "What year was Kanbun Uechi born?", 
+        "answers": ["1877", "1911", "1991", "1948", "1874"]
+    },
+    {                
+        "question": "How many kata are there in Uechi Ryu?", 
+        "answers": ["8", "5", "12", "3", "13"]
+    },
+    {                
+        "question": "What are the three primary kata?", 
+        "answers": ["Sanchin, Seisan, Sanseiryu", "Sanchin, Seiryu, Sanseiryu", "Seiryu, Seisan, Sanseiryu", "Kanchin, Seisan, Sanseiryu", "Sanchin, Kanchin, Sanseiryu"]
+    },
+    {                
+        "question": "What does Sanchin mean?", 
+        "answers": ["3 Conflicts (Mind, Body, Spirit)", "3 Animals (Dragon, Crane, Tiger)", "Half Hard, Half Soft", "Mind over Matter", "3 Positions of Attack and Defense"]
+    },
+    {                
+        "question": "What does Seisan mean?", 
+        "answers": ["13 Positions of Attack and Defense","36 Positions of Attack and Defense", "13 Stances", "36 Stances", "3 Conflicts"]
+    },
+    {                
+        "question": "What does Seisan mean?", 
+        "answers": ["36 Positions of Attack and Defense","13 Positions of Attack and Defense", "13 Stances", "36 Stances", "3 Conflicts"]
+    },
+    {                
+        "question": "What year was Kanei Uechi born?", 
+        "answers": ["1911", "1877", "1991", "1948", "1874"]
+    },
+    {                
+        "question": "What year did Kanei Uechi die?", 
+        "answers": ["1991", "1877", "1911", "1948", "1874"]
+    },
+    {                
+        "question": "What year did Kanbun Uechi die?", 
+        "answers": ["1948", "1877", "1911", "1991", "1874"]
+    },
+    {                
+        "question": "What year was Shushiwa born?", 
+        "answers": ["1874", "1877", "1911", "1991", "1948"]
+    },
+    {                
+        "question": "What are the 3 animals of the Uechiryu style?", 
+        "answers": ["Dragon, Crane, Tiger", "Scorpion, Crane, Tiger", "Dragon, Scorpion, Tiger", "Dragon, Crane, Panther", "Panther, Crane, Scorpion"]
+    },
+    {                
+        "question": "What was the style of karate that Uechiryu was originally known as?", 
+        "answers": ["Pangai-noon", "Shushiwa", "Butokukai", "Ryokoryu", "Tomoyose"]
+    },
+    {                
+        "question": "What does the original style from whch Uechiryu was derived mean?", 
+        "answers": ["Half Hard - Half Soft", "3 Conflicts (Mind, Body, Spirit)", "Dragon Style", "Crane Style", "Tiger Style"]
     }
 ]
